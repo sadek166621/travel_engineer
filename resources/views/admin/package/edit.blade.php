@@ -35,7 +35,7 @@
                                 {{-- <small class="form-text text-muted">This is a help text</small> --}}
                             </div>
                         </div>
-                        <div class="row form-group">
+                        {{-- <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Category</label></div>
                             <div class="col-12 col-md-9">
                                 <select name="category" id="select" class="form-control" required>
@@ -45,7 +45,7 @@
                                     @endforeach
                                 </select>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Country</label></div>
                             <div class="col-12 col-md-9">
@@ -57,7 +57,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="row form-group">
+                        {{-- <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Place</label></div>
                             <div class="col-12 col-md-9">
                                 <select name="place" class="form-control" required id="place" >
@@ -67,18 +67,18 @@
                                     @endforeach
                                 </select>
                             </div>
-                        </div>
-                        <div class="row form-group">
+                        </div> --}}
+                        {{-- <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Departure Point</label></div>
                             <div class="col-12 col-md-9">
-                                {{--                                @php dd($package_departure) @endphp--}}
+                                {{--                                @php dd($package_departure) @endphp
                                 <select class="js-example-basic-multiple form-control" required name="departure_point[]" multiple="multiple">
                                     @foreach ($departures as $departure )
                                         <option value="{{ $departure->name }}" {{$package_departure->where('departure_id', $departure->name)->first() ? 'selected':''}}>{{ $departure->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Night</label></div>
                             <div class="col-12 col-md-9">
@@ -93,21 +93,21 @@
                                 {{-- <small class="form-text text-muted">This is a help text</small> --}}
                             </div>
                         </div>
-                        <div class="row form-group">
+                        {{-- <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Number of Person</label></div>
                             <div class="col-12 col-md-9">
                                 <input type="text" id="text-input" name="no_of_people" placeholder="Number of Person" required class="form-control" value="{{$tour->no_of_people}}">
-                                {{-- <small class="form-text text-muted">This is a help text</small> --}}
+                                {{-- <small class="form-text text-muted">This is a help text</small>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Price</label></div>
                             <div class="col-12 col-md-9">
-                                <input type="text" id="text-input" name="price" placeholder="Price" required class="form-control" value="{{$tour->price}}">
+                                <input type="text" id="text-input" name="price" placeholder="Price" class="form-control" value="{{$tour->price}}">
                                 {{-- <small class="form-text text-muted">This is a help text</small> --}}
                             </div>
                         </div>
-                        <div class="row form-group">
+                        {{-- <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Age</label></div>
                             <div class="col-12 col-md-9">
                                 <select name="age" required id="select" class="form-control">
@@ -117,21 +117,21 @@
                                     <option value="3" {{$tour->age == 3 ? 'selected':''}}>Both</option>
                                 </select>
                             </div>
-                        </div>
-                        <div class="row form-group">
+                        </div> --}}
+                        {{-- <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Travel Period</label></div>
                             <div class="col-12 col-md-9">
                                 <input type="text" id="text-input" name="daterange" value="{{$tour->daterange}}" required placeholder="Travel Period" class="form-control">
-                                {{-- <small class="form-text text-muted">This is a help text</small> --}}
+                                {{-- <small class="form-text text-muted">This is a help text</small>
                             </div>
-                        </div>
-                        <div class="row form-group">
+                        </div> --}}
+                        {{-- <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Exception <span style="color:grey">[optional]</span></label></div>
                             <div class="col-12 col-md-9">
                                 <input type="text" id="text-input" name="exception" placeholder="Exception" class="form-control" value="{{$tour->exception}}">
-                                {{-- <small class="form-text text-muted">This is a help text</small> --}}
+                                {{-- <small class="form-text text-muted">This is a help text</small>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Thumbnail</label></div>
                             <div class="col-12 col-md-9">
@@ -140,11 +140,39 @@
                                 {{-- <small class="form-text text-muted">This is a help text</small> --}}
                             </div>
                         </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3">
+                                <label class=" form-control-label">Travel Engineer Special</label>
+                            </div>
+                            <div class="col col-md-9">
+                                <div class="form-check">
+                                    <div class="checkbox">
+                                        <label for="checkbox1" class="form-check-label ">
+                                            <input type="checkbox"  name="special" class="form-check-input"@if($tour->special == 1) checked @endif ><span id="statusText">Show</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3">
+                                <label class=" form-control-label">Status</label>
+                            </div>
+                            <div class="col col-md-9">
+                                <div class="form-check">
+                                    <div class="checkbox">
+                                        <label for="checkbox1" class="form-check-label ">
+                                            <input type="checkbox"  name="status" class="form-check-input" @if($tour->status == 1) checked @endif ><span id="statusText">Active</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-header">
-                        <strong>Day Activities</strong>
+                        <strong> Activities</strong>
                     </div>
                     <div class="card-body card-block">
 
@@ -154,7 +182,7 @@
                                 <div id="day-{{$key+1}}" class="mt-2">
                                     <div class="row form-group day-fields" >
                                         <div class="col col-md-3">
-                                            <label for="title-input" class="form-control-label"><h3>Day {{$key+1}}
+                                            <label for="title-input" class="form-control-label"><h3>Package activity
                                                     @if($key != 0)
                                                         <button type="button" class="btn btn-danger add-day-button" onclick="return deleteDayRecord({{$key+1}}, {{$tour->id}}, {{$day->id}})">-</button></h3>
                                                 @endif
@@ -162,7 +190,7 @@
 
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <input type="text" class="form-control title-input" name="day_title[]" required placeholder="Day Title" value="{{$day->title}}">
+                                            <input type="hidden" class="form-control title-input" name="day_title[]" required placeholder="Day Title" value="{{$day->title}}">
                                         </div>
                                     </div>
                                     @php $j=0; @endphp
@@ -177,7 +205,7 @@
                                                     <div class="col col-md-3">
                                                         <br>
                                                         <h5>
-                                                            <label for="title-input" class=" form-control-label">Day {{$key+1}} Activity {{$j}}
+                                                            <label for="title-input" class=" form-control-label"> Activity {{$j}}
                                                                 @if($j != 1)
                                                                     <button type="button" class="btn btn-danger add-day-button"
                                                                             onclick="deleteActivityRecord({{$key+1}},{{$j}}, {{$activity->id}})">-</button>
@@ -190,15 +218,15 @@
                                                 </div>
                                                 <div >
                                                     <div class="row form-group day-fields">
-                                                        <div class="col col-md-3">
+                                                        {{-- <div class="col col-md-3">
                                                             <label for="title-input" class="form-control-label">Activity</label>
 
-                                                        </div>
-                                                        <div class="col-12 col-md-9">
+                                                        </div> --}}
+                                                        <div class="col-12 col-md-12">
                                                             <input type="text" class="form-control title-input" name="activity[{{$key+1}}][]" required placeholder="Activity" value="{{$activity->activity}}">
                                                         </div>
                                                     </div>
-                                                    <div class="row form-group day-fields">
+                                                    {{-- <div class="row form-group day-fields">
                                                         <div class="col col-md-3">
                                                             <label for="text-input" class="form-control-label">Description</label>
                                                         </div>
@@ -222,7 +250,7 @@
                                                                 <img src="{{asset('uploads')}}/activity/{{$activity->image2}}" class="mt-2" height="100px" width="100px" alt="" >
                                                             @endif
                                                         </div>
-                                                    </div>
+                                                    </div> --}}
                                                 </div>
                                             </div>
                                         @endif
@@ -242,7 +270,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="button" class="btn btn-success mb-3 addrowdays-button" onclick="adddays()">Add Days +</button>
+                        {{-- <button type="button" class="btn btn-success mb-3 addrowdays-button" onclick="adddays()">Add Days +</button> --}}
 
                         {{-- <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Includes</label></div>
@@ -251,7 +279,7 @@
                         </div> --}}
                 </div>
             </div>
-                <div class="card">
+                {{-- <div class="card">
                     <div class="card-header">
                         <strong>Other Information</strong>
                     </div>
@@ -296,7 +324,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary btn-sm">
                         <i class="fa fa-dot-circle-o"></i> Submit
@@ -392,7 +420,7 @@ function addDayHtml(count) {
 function addActivity(day) {
     // alert(day);
     var activities = parseInt($('#addactivities-count-'+ day).val()) + 1;
-    alert('day:'+day+ 'Activity:'+activities);
+    // alert('day:'+day+ 'Activity:'+activities);
     var activityHtml = ` <div class="day-template" id="row-${day}-${activities}">
                             <div class="row form-group day-row">
                                 <div class="col col-md-3">
@@ -407,30 +435,9 @@ function addActivity(day) {
                             </div>
                             <div id="activity-add">
                                 <div class="row form-group day-fields">
-                                    <div class="col col-md-3">
-                                        <label for="title-input" class="form-control-label">Activity</label>
-                                    </div>
-                                    <div class="col-12 col-md-9">
+
+                                    <div class="col-12 col-md-12">
                                         <input type="text" class="form-control title-input" required name="activity[${day}][]" placeholder="Activity">
-                                    </div>
-                                </div>
-                                <div class="row form-group day-fields">
-                                    <div class="col col-md-3">
-                                        <label for="text-input" class="form-control-label">Description</label>
-                                    </div>
-                                    <div class="col-12 col-md-9">
-                                        <input type="text" class="form-control text-input" required name="description[${day}][]" placeholder="Text">
-                                    </div>
-                                </div>
-                                <div class="row form-group day-fields">
-                                    <div class="col-3 col-md-3">
-                                        <label for="text-input" class="form-control-label">Images</label>
-                                    </div>
-                                    <div class="col-5 col-md-4">
-                                        <input type="file" class="form-control text-input" name="image1[${day}][]" placeholder="Text">
-                                    </div>
-                                    <div class="col-5 col-md-4">
-                                        <input type="file" class="form-control text-input" name="image2[${day}][]" placeholder="Text">
                                     </div>
                                 </div>
                             </div>

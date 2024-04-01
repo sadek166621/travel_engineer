@@ -8,11 +8,11 @@
                 <li>
                     <a href="{{ route('admin.slider.list') }}"> <i class="menu-icon fa fa-cogs"></i>Slider</a>
                     <a href="{{ route('admin.country.list') }}"> <i class="menu-icon fa fa-cogs"></i>Country</a>
-                    <a href="{{ route('admin.place.list') }}"> <i class="menu-icon fa fa-cogs"></i>Places</a>
+                    {{-- <a href="{{ route('admin.place.list') }}"> <i class="menu-icon fa fa-cogs"></i>Places</a> --}}
                 </li>
                 <li class="">
-                    <a href="{{ route('admin.category.list') }}"> <i class="menu-icon fa fa-cogs"></i>Category</a>
-                    <a href="{{ route('admin.departure_point.list') }}"> <i class="menu-icon fa fa-cogs"></i>Departure Point</a>
+                    {{-- <a href="{{ route('admin.category.list') }}"> <i class="menu-icon fa fa-cogs"></i>Category</a> --}}
+                    {{-- <a href="{{ route('admin.departure_point.list') }}"> <i class="menu-icon fa fa-cogs"></i>Departure Point</a> --}}
                     <a href="{{ route('admin.package.list') }}"> <i class="menu-icon fa fa-cogs"></i>Package</a>
                     <a href="{{ route('admin.booking.list') }}"> <i class="menu-icon fa fa-cogs"></i>Booking</a>
                     <a href="{{ route('admin.blog.list') }}"> <i class="menu-icon fa fa-cogs"></i>Blog</a>

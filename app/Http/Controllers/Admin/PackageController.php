@@ -50,19 +50,24 @@ class PackageController extends Controller
         $request->validate([
 
             'name' => 'required',
-            'category' => 'required',
             'country' => 'required',
-            'place' => 'required',
-            'departure_point' => 'required',
             'night' => 'required',
             'days' => 'required',
-            'price' => 'required',
-            'age' => 'required',
-            'daterange' => 'required',
             'thumbnail' => 'required||mimes:jpeg,png,jpg,gif',
 
         ]);
 
+        if (!$request->status || $request->status == NULL) {
+            $request->status = 0;
+        } else {
+            $request->status = 1;
+        }
+
+        if (!$request->special || $request->special == NULL) {
+            $request->special = 0;
+        } else {
+            $request->special = 1;
+        }
         // Create a new tour
         $image = $request->file('thumbnail');
         if($image){
@@ -85,7 +90,7 @@ class PackageController extends Controller
             'name' => $request->name,
             'night' => $request->night,
             'days' => $request->days,
-            'no_of_people' => $request->no_of_people,
+            // 'no_of_people' => $request->no_of_people,
             'price' => $request->price,
             'country' => $request->country,
             'place' => $request->place,
@@ -98,17 +103,19 @@ class PackageController extends Controller
             'exclude' => $request->exclude,
             'important_note' => $request->important_note,
             'terms' => $request->terms,
+            'status' => $request->status,
+            'special' => $request->special,
             'booking_offer' => $request->booking_offer,
         ]);
 
-        foreach($request->departure_point as $departure){
+        // foreach($request->departure_point as $departure){
 
-            Package_departure::create([
-                'tour_id' => $tour->id,
-                'departure_id' => $departure,
-            ]);
+        //     Package_departure::create([
+        //         'tour_id' => $tour->id,
+        //         'departure_id' => $departure,
+        //     ]);
 
-        }
+        // }
 
         // Loop through days and activities to create related records
         for($i = 0; $i<count($request->day_title); $i++){
@@ -157,7 +164,6 @@ class PackageController extends Controller
                     'tour_id' => $tour->id,
                     'day_id' => $day->id,
                     'activity' => $request->activity[$i+1][$j],
-                    'description' => $request->description[$i+1][$j],
                     'image1'=>$image1,
                     'image2'=>$image2,
                 ]);
@@ -193,19 +199,27 @@ class PackageController extends Controller
         $request->validate([
 
             'name' => 'required',
-            'category' => 'required',
             'country' => 'required',
-            'place' => 'required',
-            'departure_point' => 'required',
             'night' => 'required',
             'days' => 'required',
-            'price' => 'required',
-            'age' => 'required',
-            'daterange' => 'required',
             'thumbnail' => 'mimes:jpeg,png,jpg,gif',
 
         ]);
+
+
         $tour = Tour::findOrFail($id);
+
+        if (!$request->status || $request->status == NULL) {
+            $request->status = 0;
+        } else {
+            $request->status = 1;
+        }
+
+        if (!$request->special || $request->special == NULL) {
+            $request->special = 0;
+        } else {
+            $request->special = 1;
+        }
 
         $image = $request->file('thumbnail');
         if($image){
@@ -242,19 +256,14 @@ class PackageController extends Controller
             'category' => $request->category,
             'includes' => $request->includes,
             'exclude' => $request->exclude,
+            'status' => $request->status,
+            'special' => $request->special,
             'important_note' => $request->important_note,
             'terms' => $request->terms,
         ]);
         Package_departure::where('tour_id', $id)->delete();
         Day::where('tour_id', $id)->delete();
-        foreach($request->departure_point as $departure){
 
-            Package_departure::create([
-                'tour_id' => $tour->id,
-                'departure_id' => $departure,
-            ]);
-
-        }
 
         // Loop through days and activities to create related records
         for($i = 0; $i<count($request->day_title); $i++){
@@ -281,7 +290,6 @@ class PackageController extends Controller
                             'tour_id' => $tour->id,
                             'day_id' => $day->id,
                             'activity' => $request->activity[$i + 1][$j],
-                            'description' => $request->description[$i + 1][$j],
                         ]);
                     }
                 }
@@ -290,7 +298,6 @@ class PackageController extends Controller
                         'tour_id' => $tour->id,
                         'day_id' => $day->id,
                         'activity' => $request->activity[$i+1][$j],
-                        'description' => $request->description[$i+1][$j],
                     ]);
                 }
 
