@@ -17,13 +17,16 @@ use App\Models\Admin\Booking;
 use App\Models\Admin\Blog;
 use App\Models\Message;
 use App\Models\Newsletter;
+use App\Models\Admin\Tickets;
+use App\Models\Admin\Origin;
+use App\Models\Admin\Destination;
 
 
 class FrontendController extends Controller
 {
     public function index(){
         $data['sliders'] = Slider::where('status', 1)->orderBy('id','desc')->get();
-        $data['packages'] = Tour::where('status', 1)->orderBy('id','desc')->get();
+        $data['packages'] = Tour::where('status', 1)->orderBy('id','desc')->take(4)->get();
         $data['countries'] = Country::where('status', 1)->orderBy('name', 'asc')->get();
         $data['places'] = Place::where('status', 1)->orderBy('name', 'asc')->get()->take(6);
         $data['categories'] = Category::where('status', 1)->orderBy('name', 'asc')->get()->take(8);
@@ -32,6 +35,35 @@ class FrontendController extends Controller
         return view('frontend.home.index',$data);
     }
 
+    public function allpackages(){
+        $data['packages'] = Tour::where('status', 1)->orderBy('id','desc')->get();
+        // $data['dayactivitys'] = DayActivity::where('tour_id',$id)->get();
+        return view('frontend.all-package.index',$data);
+    }
+
+    public function flighttickets(){
+        $data['origins']= Origin::where('status', 1)->orderBy('id','desc')->get();
+        $data['destinations']= Destination::where('status', 1)->orderBy('id','desc')->get();
+        return view('frontend.flight-tickets.index',$data);
+    }
+    public function blog(){
+        $data['blogs'] = Blog::where('status', 1)->orderBy('id', 'desc')->get();
+        return view('frontend.blog.index',$data);
+    }
+
+    public function blogdetails($id){
+        $data['blogs'] = Blog::where('id',$id)->where('status', 1)->orderBy('id', 'desc')->get();
+        return view('frontend.blog.blog-details',$data);
+    }
+
+    public function menupackagedetails($id){
+        $data['packages'] = Tour::where('country', $id)->where('status', 1)->orderBy('id','desc')->get();
+        return view('frontend.all-package.country-package',$data);
+    }
+
+    public function about(){
+        return view('frontend.about.index');
+    }
     public function getPlaceByCountry($id)
     {
         if($id == 0){
@@ -88,13 +120,14 @@ class FrontendController extends Controller
     }
 
     public function submitpackagebooking(Request $request){
+        // return $request;
         $validated = $request->validate([
             'name' => 'required',
             'email' => 'required',
             'phone' => 'required',
             'expected_travel_date' => 'required',
             'package_name' => 'required',
-            'departure_point' => 'required',
+            // 'departure_point' => 'required',
             'no_of_person' => 'required',
         ]);
 
@@ -104,7 +137,7 @@ class FrontendController extends Controller
             'phone' => $request->phone,
             'expected_travel_date' => $request->expected_travel_date,
             'package_name' => $request->package_name,
-            'departure_point' => $request->departure_point,
+            // 'departure_point' => $request->departure_point,
             'no_of_person' => $request->no_of_person,
         ]);
 
@@ -116,6 +149,7 @@ class FrontendController extends Controller
     }
 
     public function contactformsubmit(Request $request){
+        // return $request;
        Message::create([
         'name'=>$request->name,
         'email'=>$request->email,
@@ -130,5 +164,30 @@ class FrontendController extends Controller
             'email'=>$request->email,
         ]);
         return back();
+    }
+
+    public function submittickets(Request $request){
+        // return $request;
+        Tickets::create([
+            'way'=>$request->way,
+            'origin'=>$request->origin,
+            'destination'=>$request->destination,
+            'adult'=>$request->adult,
+            'children'=>$request->children,
+            'infants'=>$request->infants,
+            'departure_date'=>$request->departure_date,
+            'return_date'=>$request->return_date,
+            'firstname'=>$request->firstname,
+            'lastname'=>$request->lastname,
+            'email'=>$request->email,
+            'phone'=>$request->phone,
+        ]);
+        return back()->with('success','Information Submitted Successfully');
+    }
+
+    public function countrys(){
+
+        $data['countries'] = Country::where('status', 1)->orderBy('id', 'desc')->get();
+        return view('frontend.country.index',$data);
     }
 }

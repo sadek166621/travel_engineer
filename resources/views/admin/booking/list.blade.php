@@ -26,7 +26,7 @@
                                             <th>Expected Travel Date</th>
                                             <th>Package</th>
                                             {{-- <th>Price</th> --}}
-                                            <th>Departure Point</th>
+                                            {{-- <th>Departure Point</th> --}}
                                             <th>Number of Person</th>
                                             <th>Action</th>
                                         </tr>
@@ -42,7 +42,7 @@
                                                     <td>{{$booking->expected_travel_date}}</td>
                                                     <td>{{$booking->Tour->name}}</td>
                                                     {{-- <td>{{$booking->price}}</td> --}}
-                                                    <td>{{$booking->departure_point}}</td>
+                                                    {{-- <td>{{$booking->departure_point}}</td> --}}
                                                     <td>{{$booking->no_of_person}}</td>
                                                     <td>
                                                         <a href="{{ route('admin.booking.edit', $booking->id) }}" class="btn btn-info"><i class="fa fa-edit"></i> Edit</a>

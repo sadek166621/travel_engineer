@@ -13,6 +13,9 @@ use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\OriginController;
+use App\Http\Controllers\Admin\DestinationController;
+use App\Http\Controllers\Admin\FlightController;
 
 
 // ====================FrontEnd Controllers Path ================
@@ -39,6 +42,19 @@ Route::get('package-details/{id}', [FrontendController::class, 'packagedetails']
 Route::get('contact-us', [FrontendController::class, 'contactus'])->name('contact-us');
 Route::post('contact-form-submit', [FrontendController::class, 'contactformsubmit'])->name('contact-form-submit');
 Route::post('news-letter-submit', [FrontendController::class, 'newslettersubmit'])->name('news-letter-submit');
+
+
+
+Route::get('all-packages', [FrontendController::class, 'allpackages'])->name('all-packages');
+Route::get('blog', [FrontendController::class, 'blog'])->name('blog');
+Route::get('about', [FrontendController::class, 'about'])->name('about');
+Route::get('countrys', [FrontendController::class, 'countrys'])->name('countrys');
+Route::get('flight-tickets', [FrontendController::class, 'flighttickets'])->name('flight-tickets');
+// Route::get('con', [FrontendController::class, 'about'])->name('about');
+Route::get('blog-details/{id}', [FrontendController::class, 'blogdetails'])->name('blog-details');
+Route::get('menu-package-details/{id}', [FrontendController::class, 'menupackagedetails'])->name('menu-package-details');
+Route::Post('submit-tickets', [FrontendController::class, 'submittickets'])->name('submit-tickets');
+
 
 
 
@@ -92,6 +108,46 @@ Route::prefix('admin/')->name('admin.')->middleware('admin')->group(function () 
     });
 
     // =========================================== End Place Routes ======================================
+
+
+    // =========================================== origin Routes ======================================
+
+    Route::group(['as' => 'origin.', 'prefix' => 'origin'], function () {
+        Route::get('/list', [OriginController::class, 'index'])->name('list');
+        Route::get('/add', [OriginController::class, 'create'])->name('add');
+        Route::post('/submit', [OriginController::class, 'store'])->name('store');
+        Route::get('/edit/{id}', [OriginController::class, 'edit'])->name('edit');
+        Route::post('/update/{id}', [OriginController::class, 'update'])->name('update');
+        Route::get('/delete/{id}', [OriginController::class, 'destroy'])->name('delete');
+    });
+
+    // =========================================== End origin Routes ======================================
+
+    // =========================================== destination Routes ======================================
+
+    Route::group(['as' => 'destination.', 'prefix' => 'destination'], function () {
+        Route::get('/list', [DestinationController::class, 'index'])->name('list');
+        Route::get('/add', [DestinationController::class, 'create'])->name('add');
+        Route::post('/submit', [DestinationController::class, 'store'])->name('store');
+        Route::get('/edit/{id}', [DestinationController::class, 'edit'])->name('edit');
+        Route::post('/update/{id}', [DestinationController::class, 'update'])->name('update');
+        Route::get('/delete/{id}', [DestinationController::class, 'destroy'])->name('delete');
+    });
+
+    // =========================================== End destination Routes ======================================
+
+    // =========================================== tickets Routes ======================================
+
+    Route::group(['as' => 'tickets.', 'prefix' => 'tickets'], function () {
+        Route::get('/list', [FlightController::class, 'index'])->name('list');
+        // Route::get('/add', [FlightController::class, 'create'])->name('add');
+        // Route::post('/submit', [FlightController::class, 'store'])->name('store');
+        // Route::get('/edit/{id}', [FlightController::class, 'edit'])->name('edit');
+        // Route::post('/update/{id}', [FlightController::class, 'update'])->name('update');
+        Route::get('/delete/{id}', [FlightController::class, 'destroy'])->name('delete');
+    });
+
+    // =========================================== End tickets Routes ======================================
 
     // =========================================== Category Routes ======================================
 

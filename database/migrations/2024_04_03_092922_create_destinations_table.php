@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('departures', function (Blueprint $table) {
+        Schema::create('destinations', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->unsignedTinyInterger('status')->default('1')->comment('1=> Active, 0=>Inactive');
+            $table->string('name')->nullable();
+            $table->integer('status')->default('1')->comment('1=> Active, 0=>Inactive');
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('departures');
+        Schema::dropIfExists('destinations');
     }
 };

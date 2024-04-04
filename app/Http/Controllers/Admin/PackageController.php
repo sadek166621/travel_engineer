@@ -195,7 +195,7 @@ class PackageController extends Controller
      */
     public function update(Request $request, string $id)
     {
-//        return $request;
+    //    return $request;
         $request->validate([
 
             'name' => 'required',
@@ -263,86 +263,31 @@ class PackageController extends Controller
         ]);
         Package_departure::where('tour_id', $id)->delete();
         Day::where('tour_id', $id)->delete();
+        DayActivity::where('tour_id', $id)->delete();
+        // dd($request);
 
-
-        // Loop through days and activities to create related records
-        for($i = 0; $i<count($request->day_title); $i++){
+        for($i = 1; $i<=count($request->day_title); $i++){
             // foreach ($request->input('day_title') as $key => $dayTitle) {
-            // Create a new day instance for each day
-            $day = new Day([
-                'tour_id' => $tour->id, // Assign the tour id
-                'title' => $request->day_title[$i],
-            ]);
-            $day->save();
+                // Create a new day instance for each day
+                $day = new Day([
+                    'tour_id' => $tour->id, // Assign the tour id
+                    'title' => $request->day_title[$i-1],
+                ]);
+                $day->save();
+                for($j = 1; $j<=count($request->activity); $j++){
+                    // dd($request->activity[$i]);
 
-            for($j = 0; $j<count($request->activity[$i+1]); $j++){
-                if(isset($request->activity_id[$i+1][$j])){
-                    if (DayActivity::findOrFail($request->activity_id[$i+1][$j])){
-                        $dayActivity = DayActivity::findOrFail($request->activity_id[$i+1][$j]);
-                        $dayActivity->day_id = $day->id;
-                        $dayActivity->activity = $request->activity[$i+1][$j];
-                        $image1 = $dayActivity->image1;
-                        $image2 = $dayActivity->image2;
-//                        $request->activity_id[$j] = 0;
-                    }
-                    else {
                         $dayActivity = new DayActivity([
                             'tour_id' => $tour->id,
                             'day_id' => $day->id,
-                            'activity' => $request->activity[$i + 1][$j],
+                            'activity' => $request->activity[$j-1],
                         ]);
+                        $dayActivity->save();
+
                     }
-                }
-                else{
-                    $dayActivity = new DayActivity([
-                        'tour_id' => $tour->id,
-                        'day_id' => $day->id,
-                        'activity' => $request->activity[$i+1][$j],
-                    ]);
+
                 }
 
-                if(isset($request->file("image1")[$i+1][$j])){
-                    $temp = $request->file("image1")[$i+1][$j];
-                    $currentDate = Carbon::now()->toDateString();
-                    //dd($image->getClientOriginalExtension());
-                    $imageName1 = $currentDate . '-' . uniqid() . '.' . $temp->getClientOriginalExtension();
-                    if (!file_exists('uploads/activity')) {
-                        mkdir('uploads/activity', 0777, true);
-                    }
-                    $temp->move(public_path('uploads/activity'), $imageName1);
-                    // $image->move(base_path().'/assets/images/uploads/photogallerys', $imageName);
-                    $image1 = $imageName1;
-                }
-
-                if(isset($request->file("image2")[$i+1][$j])){
-                    // return $image1[$j+1];
-                    $temp = $request->file("image2")[$i+1][$j];
-                    // return $temp;
-                    // dd($temp);
-                    $currentDate = Carbon::now()->toDateString();
-                    //dd($image->getClientOriginalExtension());
-                    $imageName = $currentDate . '-' . uniqid() . '.' . $temp->getClientOriginalExtension();
-                    if (!file_exists('uploads/activity')) {
-                        mkdir('uploads/activity', 0777, true);
-                    }
-                    $temp->move(public_path('uploads/activity'), $imageName);
-                    // $image->move(base_path().'/assets/images/uploads/photogallerys', $imageName);
-                    $image2 = $imageName;
-                }
-//                if($dayActivity->image1 != null && $image1 !=null){
-//                    unlink('uploads/activity/'.$dayActivity->image1);
-//                }
-//                if($dayActivity->image2 != null  && $image2 !=null){
-//                    unlink('uploads/activity/'.$dayActivity->image2);
-//                }
-                $dayActivity->image1 = $image1;
-                $dayActivity->image2 = $image2;
-
-                $dayActivity->save();
-
-
-            }
-        }
 
         return redirect()->route('admin.package.list')->with('success', 'Package updated successfully.');
     }

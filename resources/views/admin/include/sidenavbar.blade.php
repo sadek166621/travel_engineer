@@ -6,15 +6,25 @@
                     <a href="{{ route('admin.dashboard') }}"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
                 </li>
                 <li>
+                    <a href="{{ route('admin.setting.add') }}"> <i class="menu-icon fa fa-cogs"></i>Setting</a>
                     <a href="{{ route('admin.slider.list') }}"> <i class="menu-icon fa fa-cogs"></i>Slider</a>
                     <a href="{{ route('admin.country.list') }}"> <i class="menu-icon fa fa-cogs"></i>Country</a>
                     {{-- <a href="{{ route('admin.place.list') }}"> <i class="menu-icon fa fa-cogs"></i>Places</a> --}}
+                </li>
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>Flight Tickets</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="menu-icon fa fa-fort-awesome"></i><a href="{{ route('admin.origin.list') }}">Origin List</a></li>
+                        <li><i class="menu-icon fa fa-fort-awesome"></i><a href="{{ route('admin.destination.list') }}">Destination List</a></li>
+                        <li><i class="menu-icon fa fa-fort-awesome"></i><a href="{{ route('admin.tickets.list') }}">Leads</a></li>
+                    </ul>
                 </li>
                 <li class="">
                     {{-- <a href="{{ route('admin.category.list') }}"> <i class="menu-icon fa fa-cogs"></i>Category</a> --}}
                     {{-- <a href="{{ route('admin.departure_point.list') }}"> <i class="menu-icon fa fa-cogs"></i>Departure Point</a> --}}
                     <a href="{{ route('admin.package.list') }}"> <i class="menu-icon fa fa-cogs"></i>Package</a>
                     <a href="{{ route('admin.booking.list') }}"> <i class="menu-icon fa fa-cogs"></i>Booking</a>
+
                     <a href="{{ route('admin.blog.list') }}"> <i class="menu-icon fa fa-cogs"></i>Blog</a>
 
                     {{-- <ul class="sub-menu children dropdown-menu">
@@ -30,6 +40,7 @@
                         <li><i class="fa fa-file-word-o"></i><a href="ui-typgraphy.html">Typography</a></li>
                     </ul> --}}
                 </li>
+
                 <li>
                     <a href="{{ route('admin.testimonial.list') }}"> <i class="menu-icon fa fa-cogs"></i>Testimonial</a>
                 </li>
@@ -37,6 +48,7 @@
                     <a href="{{ route('admin.message.list') }}"> <i class="menu-icon fa fa-cogs"></i>Message</a>
                     <a href="{{ route('admin.newsletter.list') }}"> <i class="menu-icon fa fa-cogs"></i>News Letter</a>
                 </li>
+
                 {{-- <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Tables</a>
                     <ul class="sub-menu children dropdown-menu">

@@ -25,4 +25,9 @@ class Tour extends Model
         return $this->belongsTo(Place::class, 'place');
     }
 
+    public function dayactivity()
+    {
+        return $this->hasMany(DayActivity::class, 'tour_id');
+    }
+
 }
