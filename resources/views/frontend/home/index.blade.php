@@ -156,7 +156,7 @@
                      <div class="col-lg-3 col-md-6">
                         <div class="package-wrap">
                            <figure class="feature-image">
-                              <a href="#">
+                              <a href="{{ route('menu-package-details',$package->country) }}">
                                  <img src="{{asset('uploads')}}/package_thumbnail/{{$package->thumbnail}}" style="width: 267px;" alt="">
                               </a>
                            </figure>
@@ -237,7 +237,7 @@
                      <div class="col-lg-3 col-md-6">
                         <div class="package-wrap">
                            <figure class="feature-image">
-                              <a href="#">
+                              <a href="{{ route('menu-package-details',$package->country) }}">
                                  <img src="{{asset('uploads')}}/package_thumbnail/{{$package->thumbnail}}" style="width: 267px;" alt="">
                               </a>
                            </figure>

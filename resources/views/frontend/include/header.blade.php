@@ -71,7 +71,7 @@
                       <a href="{{ route('blog') }}">Blog</a>
                    </li>
                    <li>
-                      <a href="#">Offers</a>
+                      <a href="{{ route('offer') }}">Offers</a>
                    </li>
                    <li>
                       <a href="{{ route('about') }}">About Us</a>

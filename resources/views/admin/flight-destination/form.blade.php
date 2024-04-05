@@ -5,7 +5,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <strong>destination Point</strong>
+                    <strong>Destination Point</strong>
                 </div>
                 @if ($errors->any())
                     <div class="alert alert-danger">

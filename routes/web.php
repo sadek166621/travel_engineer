@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\OriginController;
 use App\Http\Controllers\Admin\DestinationController;
 use App\Http\Controllers\Admin\FlightController;
+use App\Http\Controllers\Admin\OfferController;
 
 
 // ====================FrontEnd Controllers Path ================
@@ -48,6 +49,7 @@ Route::post('news-letter-submit', [FrontendController::class, 'newslettersubmit'
 Route::get('all-packages', [FrontendController::class, 'allpackages'])->name('all-packages');
 Route::get('blog', [FrontendController::class, 'blog'])->name('blog');
 Route::get('about', [FrontendController::class, 'about'])->name('about');
+Route::get('offer', [FrontendController::class, 'offer'])->name('offer');
 Route::get('countrys', [FrontendController::class, 'countrys'])->name('countrys');
 Route::get('flight-tickets', [FrontendController::class, 'flighttickets'])->name('flight-tickets');
 // Route::get('con', [FrontendController::class, 'about'])->name('about');
@@ -209,6 +211,20 @@ Route::prefix('admin/')->name('admin.')->middleware('admin')->group(function () 
     });
 
     // =========================================== End Testimonial Routes ======================================
+
+
+    // =========================================== offer Routes ======================================
+
+    Route::group(['as' => 'offer.', 'prefix' => 'offer'], function () {
+        Route::get('/list', [OfferController::class, 'index'])->name('list');
+        Route::get('/add', [OfferController::class, 'create'])->name('add');
+        Route::post('/submit', [OfferController::class, 'store'])->name('store');
+        Route::get('/edit/{id}', [OfferController::class, 'edit'])->name('edit');
+        Route::post('/update/{id}', [OfferController::class, 'update'])->name('update');
+        Route::get('/delete/{id}', [OfferController::class, 'destroy'])->name('delete');
+    });
+
+    // =========================================== End offer Routes ======================================
 
 
     // =========================================== Slider Routes ======================================

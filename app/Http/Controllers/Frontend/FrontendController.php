@@ -20,6 +20,7 @@ use App\Models\Newsletter;
 use App\Models\Admin\Tickets;
 use App\Models\Admin\Origin;
 use App\Models\Admin\Destination;
+use App\Models\Admin\Offer;
 
 
 class FrontendController extends Controller
@@ -63,6 +64,11 @@ class FrontendController extends Controller
 
     public function about(){
         return view('frontend.about.index');
+    }
+    public function offer(){
+        return view('frontend.offer.index',[
+            'offers'=> $offers =  Offer::where('status', 1)->orderBy('id','desc')->get(),
+        ]);
     }
     public function getPlaceByCountry($id)
     {

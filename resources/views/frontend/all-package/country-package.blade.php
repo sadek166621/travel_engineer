@@ -47,7 +47,7 @@
 
                     <div class="col-12">
                         <div class="header-btn  mb-2">
-                            <a href="#" class="button-primary mx-auto view-more-btn">View More</a>
+                            <a href="#" class=" mx-auto view-more-btn"style="color: black;font-weight: bold; margin-top: 30px;">View More</a>
                         </div>
                     </div>
                 </div>
