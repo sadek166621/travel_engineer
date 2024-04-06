@@ -45,19 +45,84 @@
                     </div>
                     @endforeach
 
+                    <!--<div class="col-12">-->
+                    <!--    <div class="header-btn  mb-2">-->
+                    <!--        <a href="#" class=" mx-auto view-more-btn"style="color: black;font-weight: bold; margin-top: 30px;">View More</a>-->
+                    <!--    </div>-->
+                    <!--</div>-->
                     <div class="col-12">
-                        <div class="header-btn  mb-2">
-                            <a href="#" class="button-primary mx-auto view-more-btn">View More</a>
-                        </div>
-                    </div>
+                           <div class="header-btn  mb-2">
+                              <a href="#" class=" mx-auto view-more-btn"style="color: black;font-weight: bold;">View More</a>
+                           </div>
+                        </div>
                 </div>
                </div>
                <div class="col-lg-2 col-md-6 border d-flex flex-column align-items-center justify-content-center">
                   <h3 class="title">LKR {{ $package->price }}</h3>
                   <h5 class="text">Starting Price</h5>
-                  <div class="header-btn mt-2">
-                     <a href="#" class="button-secondary">Submit Inquiry</a>
-                  </div>
+                 <div class="header-btn mt-2">
+                    <a href="#" class="button-secondary" data-toggle="modal" data-target="#exampleModal{{ $package->id }}">Submit
+                       Inquiry</a>
+                     {{-- @php
+                           dd($package->id);
+                     @endphp --}}
+                    <!-- Inquiry Modal Start -->
+                    <div class="modal fade" id="exampleModal{{ $package->id }}" tabindex="-1" aria-labelledby="exampleModalLabel{{ $package->id }}" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3 class="modal-title" id="exampleModalLabel{{ $package->id }}">Book A Tour Deals</h3>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="{{ route('submit-package-booking') }}" method="Post" enctype="multipart/form-data" >
+                                        @csrf
+                                        <input type="hidden" value="{{ $package->id }}" class="form-control bg-light border-0" name="package_name">
+
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label for="name">Name</label>
+                                                <input type="text" name="name" value="" class="form-control border-danger rounded" placeholder="Your Name">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="email">Email</label>
+                                                <input type="email" name="email" value="" class="form-control border-danger rounded" placeholder="Your Email">
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label for="phone-number">Phone Number</label>
+                                                <input type="text" name="phone" value="" class="form-control border-danger rounded" placeholder="Your Phone Number">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="person">Number Of Person</label>
+                                                <input type="number" name="no_of_person" value="" class="form-control border-danger rounded" placeholder="Number Of Person">
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            {{-- <div class="form-group col-md-6">
+                                                <label for="inputState">Destination</label>
+                                                <select id="inputState" class="form-control border-danger rounded">
+                                                    <option selected>{{ $package->destination }}</option>
+                                                    <!-- Add other options dynamically if needed -->
+                                                </select>
+                                            </div> --}}
+                                            <div class="form-group col-md-12">
+                                                <label for="date">Expected Travel Date</label>
+                                                <input type="date" name="expected_travel_date" class="form-control border-danger rounded" id="inputCity">
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="button-primary px-4">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal End for package {{ $package->id }} -->
+                    <!-- Inquiry Modal End -->
+                 </div>
                   <div class="header-btn mt-3">
                      <a href="#" class="button-secondary">Call Now</a>
                   </div>
