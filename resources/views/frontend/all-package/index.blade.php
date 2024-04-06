@@ -37,15 +37,15 @@
                   <div>
                      <h4>Package Details</h4>
                   </div>
-                <div class="row">
-                    <?php $activities = $package->dayactivity->take(6); ?>
+                <div class="row bulet-point">
+                    <?php $activities = $package->dayactivity->take(10); ?>
                     @foreach ($activities as $activity)
                     <div class="col-6">
                         <p><i class="fas fa-plane"></i> {{ $activity->activity }}</p>
                     </div>
                     @endforeach
 
-                    @foreach ($package->dayactivity->skip(6) as $index => $activity)
+                    @foreach ($package->dayactivity->skip(10) as $index => $activity)
                     <div class="col-6 more-details22" style="display: none;">
                         <p><i class="fas fa-plane"></i> {{ $activity->activity }}</p>
                     </div>
@@ -53,8 +53,10 @@
 
                     <div class="col-12">
                         <div class="header-btn  mb-2">
-                            <a href="#" class="button-primary mx-auto view-more-btn">View More</a>
+                            <a href="#" class=" mx-auto view-more-btn" style="color: black;font-weight: bold;">View
+                                More</a>
                         </div>
+                              
                     </div>
                 </div>
                </div>

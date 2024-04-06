@@ -1,9 +1,9 @@
 <header id="masthead" class="site-header header-primary">
     <!-- header html start -->
     <div class="top-header">
-       <div class="container">
+       <div class="container-fluid">
           <div class="row">
-             <div class="col-lg-8 d-none d-lg-block">
+             <div class="col-lg-10 d-none d-lg-block">
                 <div class="header-contact-info">
                    <ul>
                       <li>
@@ -18,7 +18,7 @@
                    </ul>
                 </div>
              </div>
-             <div class="col-lg-4 d-flex justify-content-lg-end justify-content-between">
+             <div class="col-lg-2 d-flex justify-content-lg-end justify-content-between">
                 <div class="header-social social-links">
                    <ul>
                       <li><a href="{{ getSetting()->facebook_link }}"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
@@ -71,7 +71,7 @@
                       <a href="{{ route('blog') }}">Blog</a>
                    </li>
                    <li>
-                      <a href="#">Offers</a>
+                      <a href="{{ route('offer') }}">Offers</a>
                    </li>
                    <li>
                       <a href="{{ route('about') }}">About Us</a>

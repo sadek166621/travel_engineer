@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin\Country;
+use DB;
 
 class CountryController extends Controller
 {
@@ -121,7 +122,11 @@ class CountryController extends Controller
             unlink($place->image);
         }
         $place->delete();
+        DB::table('tours')->where('country', $id)->delete();
+        
         return back();
+       
+
 
     }
 

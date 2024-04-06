@@ -1,3 +1,4 @@
+
 @extends('admin.master')
 @section('content')
 
@@ -6,7 +7,7 @@
         <div class="col-md-6">
           </div>
         <div class="col-md-6">
-            <a href="{{ route('admin.slider.add') }}" class="btn btn-info float-right">Add New</a>
+            <a href="{{ route('admin.offer.add') }}" class="btn btn-info float-right">Add New</a>
           </div>
     </div>
     <br>
@@ -14,15 +15,20 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title">Sliders</strong>
+                                <strong class="card-title">Offer</strong>
                             </div>
+                            @if(session('success'))
+                                <div class="alert alert-success">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
                             <div class="card-body">
                                 <table id="myTable" class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>SL</th>
                                             <th>Title</th>
-                                            <th>Main Title</th>
+                                            <th>Description</th>
+                                            <th>Terms and Conditions</th>
                                             <th>Image</th>
                                             <th>Status</th>
                                             <th>Action</th>
@@ -30,24 +36,24 @@
                                     </thead>
                                     <tbody>
 
-                                        @if(count($sliders) >0)
-                                            @foreach ($sliders as $key=> $slider )
+                                        @if(count($offers) >0)
+                                            @foreach ($offers as $offer )
                                                 <tr>
-                                                    <td>{{$key+1}}</td>
-                                                    <td>{{$slider->title}}</td>
-                                                    <td>{{$slider->main_title}}</td>
+                                                    <td>{{$offer->title}}</td>
+                                                    <td>{!! $offer->description !!}</td>
+                                                    <td>{!! $offer->term !!}</td>
                                                     <td>
-                                                        <img src="{{asset('uploads/sliders')}}/{{ $slider->image }}" height="150px" width="150px" alt=""></td>
+                                                        <img src="{{ asset('assets') }}/images/uploads/offer/{{ $offer->image }}" height="150px" width="150px" alt=""></td>
                                                     <td>
-                                                        @if ($slider->status == 1)
-                                                            <span class="badge bg-success">Active</span>
+                                                        @if ($offer->status == 1)
+                                                            <span class="badge bg-success" >Active</span>
                                                         @else
                                                             <span class="badge bg-danger">Inactive</span>
                                                         @endif
                                                     </td>
                                                     <td>
-                                                        <a href="{{ route('admin.slider.edit', $slider->id) }}" class="btn btn-info"><i class="fa fa-edit"></i> Edit</a>
-                                                        <a href="{{ route('admin.slider.delete', $slider->id) }}" class="btn btn-danger" onclick="if(!confirm('Are You Sure?')){ return false }">
+                                                        <a href="{{ route('admin.offer.edit', $offer->id) }}" class="btn btn-info"><i class="fa fa-edit"></i> Edit</a>
+                                                        <a href="{{ route('admin.offer.delete', $offer->id) }}" class="btn btn-danger" onclick="if(!confirm('Are You Sure?')){ return false }">
                                                             <i class="fa fa-trash">
                                                             </i> Delete</a>
                                                     </td>
@@ -55,7 +61,7 @@
                                             @endforeach
                                         @else
                                             <tr>
-                                                <td colspan="5" class="text-center">No Country Added</td>
+                                                <td colspan="5" class="text-center">No Place Added</td>
                                             </tr>
                                         @endif
 
@@ -70,8 +76,8 @@
             @endsection
             @push('js')
             <script>
-                 $(document).ready(function(){
-        $('#myTable').DataTable();
-    });
+                    $(document).ready(function(){
+                        $('#myTable').DataTable();
+                    });
             </script>
             @endpush

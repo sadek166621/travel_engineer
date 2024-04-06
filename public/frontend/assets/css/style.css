@@ -23,16 +23,16 @@
 	* Home slider section
 	* Home travel search section
 	* Home destination section
-	* Home package section 
-	* Home callback section 
-	* Home activity section  
+	* Home package section
+	* Home callback section
+	* Home activity section
 	* Home Travel choice section
-	* Home gallery section 
-	* Home clinet section  
-	* Home subscribe form section    
+	* Home gallery section
+	* Home clinet section
+	* Home subscribe form section
 	* Home blog section
-	* Home testimonial section  
-	* Home contact section  
+	* Home testimonial section
+	* Home contact section
 10. main Footer
 11. pages
 	* About Pages
@@ -52,7 +52,7 @@
 	* Shop Pages
 		*Product Right
 		*Product Detail
-		*Product Cart 
+		*Product Cart
 		*Product Checkout
 	* Tour Cart Page
 	* Booking Page
@@ -77,6 +77,9 @@ main {
   display: block;
 }
 
+figure {
+  margin: 0;
+}
 figure {
   margin: 0;
 }
@@ -517,7 +520,7 @@ dd {
 # Links
 --------------------------------------------------------------*/
 a {
-  color: #0085BA;
+  color: #9C0A0E;
   text-decoration: none;
   -webkit-transition: color 0.3s;
   -moz-transition: color 0.3s;
@@ -529,7 +532,7 @@ a {
 a:hover,
 a:focus,
 a:active {
-  color: #2C75BA;
+  color: #9C0A0E;
   text-decoration: none;
   outline: 0;
 }
@@ -1240,7 +1243,7 @@ input[type=submit]:focus {
 }
 
 /*--------------------------------------------------------------
->>> Default 
+>>> Default
 ----------------------------------------------------------------*/
 .white-bg {
   background-color: #ffffff;
@@ -1508,7 +1511,7 @@ input[type=submit]:focus {
 }
 
 /*--------------------------------------------------------------
->>> Main Header 
+>>> Main Header
 ----------------------------------------------------------------*/
 .site-header {
   position: relative;
@@ -1887,7 +1890,7 @@ input[type=submit]:focus {
 
 .main-navigation ul li.menu-item-has-children li:hover>a,
 .main-navigation ul li.menu-item-has-children li:focus>a {
-  background-color: #2C75BA;
+  background-color: #9C0A0E;
   color: #ffffff;
 }
 
@@ -2172,10 +2175,9 @@ input[type=submit]:focus {
   }
 
   .fixed-header .mobile-menu-container .slicknav_nav {
-    min-height: calc(100vh - 78px);
     height: 100%;
     overflow-y: scroll;
-    position: absolute;
+    /* position: absolute; */
     width: 100%;
     left: 0;
     right: 0;
@@ -2488,10 +2490,10 @@ input[type=submit]:focus {
 }
 
 /*--------------------------------------------------------------
->>> Home Main section  
+>>> Home Main section
 ----------------------------------------------------------------*/
 /*--------------------------------------------------------------
->>> Home slider section  
+>>> Home slider section
 ----------------------------------------------------------------*/
 .slick-slider {
   position: relative;
@@ -2774,7 +2776,7 @@ input[type=submit]:focus {
 }
 
 /*--------------------------------------------------------------
->>> Home travel search section  
+>>> Home travel search section
 ----------------------------------------------------------------*/
 .shape-search-section {
   padding-bottom: 100px;
@@ -2940,7 +2942,7 @@ input[type=submit]:focus {
 }
 
 /*--------------------------------------------------------------
->>> Home travel destination section  
+>>> Home travel destination section
 ----------------------------------------------------------------*/
 .destination-section {
   padding-bottom: 100px;
@@ -3096,7 +3098,7 @@ input[type=submit]:focus {
 }
 
 /*--------------------------------------------------------------
->>> Home travel packages section  
+>>> Home travel packages section
 ----------------------------------------------------------------*/
 .rating-start {
   display: block;
@@ -3252,6 +3254,11 @@ input[type=submit]:focus {
   font-size: 22px;
   font-weight: 700;
   line-height: 1.2;
+}
+
+.package-wrap .feature-image:hover img {
+  transform: scale(1.1);
+  transition: .5s;
 }
 
 @media screen and (max-width: 991px) {
@@ -3419,7 +3426,7 @@ input[type=submit]:focus {
 }
 
 /*--------------------------------------------------------------
->>> Home travel callback section  
+>>> Home travel callback section
 ----------------------------------------------------------------*/
 .callback-section {
   position: relative;
@@ -3865,7 +3872,7 @@ input[type=submit]:focus {
 }
 
 /*--------------------------------------------------------------
->>> Home travel activity section  
+>>> Home travel activity section
 ----------------------------------------------------------------*/
 .activity-section {
   padding-bottom: 20px;
@@ -4026,7 +4033,7 @@ input[type=submit]:focus {
 }
 
 /*--------------------------------------------------------------
->>> Home travel special section  
+>>> Home travel special section
 ----------------------------------------------------------------*/
 .special-section {
   padding-bottom: 100px;
@@ -4192,7 +4199,7 @@ input[type=submit]:focus {
 }
 
 /*--------------------------------------------------------------
->>> Home travel best travel section  
+>>> Home travel best travel section
 ----------------------------------------------------------------*/
 .best-section {
   padding-bottom: 70px;
@@ -4219,7 +4226,7 @@ input[type=submit]:focus {
 }
 
 /*--------------------------------------------------------------
->>> Home travel client section  
+>>> Home travel client section
 ----------------------------------------------------------------*/
 .client-section {
   position: relative;
@@ -4243,7 +4250,7 @@ input[type=submit]:focus {
 }
 
 /*--------------------------------------------------------------
->>> Home travel subscribe section  
+>>> Home travel subscribe section
 ----------------------------------------------------------------*/
 .subscribe-section {
   background-position: center center;
@@ -4505,8 +4512,8 @@ input[type=submit]:focus {
   text-transform: uppercase;
 }
 
-/* This for loop creates the 	necessary css animation names 
-Due to the split circle of progress-left and progress right, we must use the animations on each side. 
+/* This for loop creates the 	necessary css animation names
+Due to the split circle of progress-left and progress right, we must use the animations on each side.
 */
 .progress-circle[data-percentage="10"] .circle-right .circle-bar {
   animation: loading-1 2s linear forwards;
@@ -4698,7 +4705,7 @@ Due to the split circle of progress-left and progress right, we must use the ani
 }
 
 /*--------------------------------------------------------------
->>> Home travel blog section  
+>>> Home travel blog section
 ----------------------------------------------------------------*/
 .blog-section {
   padding: 100px 0;
@@ -4768,9 +4775,10 @@ Due to the split circle of progress-left and progress right, we must use the ani
 }
 
 /*--------------------------------------------------------------
->>> Home travel testimonial section  
+>>> Home travel testimonial section
 ----------------------------------------------------------------*/
 .testimonial-section {
+  padding-top: 20px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom center;
@@ -4839,7 +4847,7 @@ Due to the split circle of progress-left and progress right, we must use the ani
 
 /*--------------------------------------------------------------
 
->>> Home travel contact section  
+>>> Home travel contact section
 ----------------------------------------------------------------*/
 .contact-section {
   background-color: #0791BE;
@@ -4974,7 +4982,7 @@ Due to the split circle of progress-left and progress right, we must use the ani
 }
 
 /*--------------------------------------------------------------
->>> Home travel team section  
+>>> Home travel team section
 ----------------------------------------------------------------*/
 .team-item {
   border: 1px solid rgba(7, 145, 190, 0.13);
@@ -5028,7 +5036,7 @@ Due to the split circle of progress-left and progress right, we must use the ani
 }
 
 /*--------------------------------------------------------------
->>> Home travel choice section  
+>>> Home travel choice section
 ----------------------------------------------------------------*/
 .choice-section {
   padding-bottom: 100px;
@@ -5097,7 +5105,7 @@ Due to the split circle of progress-left and progress right, we must use the ani
 }
 
 /*--------------------------------------------------------------
->>> Main Footer  
+>>> Main Footer
 ----------------------------------------------------------------*/
 .site-footer {
   background-color: #f0ebeb;
@@ -5133,7 +5141,7 @@ Due to the split circle of progress-left and progress right, we must use the ani
 }
 
 .site-footer .buttom-footer {
-  background-color: #404040;
+  background-color: #9C0A0E;
   padding: 10px 0;
 }
 
@@ -5257,7 +5265,7 @@ Due to the split circle of progress-left and progress right, we must use the ani
 }
 
 /*--------------------------------------------------------------
->>> Inner Banner  
+>>> Inner Banner
 ----------------------------------------------------------------*/
 .inner-banner-wrap {
   padding-bottom: 30px;
@@ -8913,7 +8921,7 @@ product checkout css
 }
 
 /*--------------------------------------------------------------
->>> Compatibility  
+>>> Compatibility
 ----------------------------------------------------------------*/
 .overlay-hover .thumb-img img {
   -webkit-transform: scale(1.1);
@@ -10100,7 +10108,7 @@ product checkout css
 
 .category-section .category-img img {
   width: 100%;
-  height: 300px;
+  height: 340px;
 }
 
 .category-section h2 {
@@ -10120,7 +10128,13 @@ product checkout css
   font-weight: 600;
 }
 
-.category-section p i {
+.category-section .bulet-point p {
+  line-height: 1.6;
+  margin: 0 0 5px;
+  word-wrap: break-word;
+}
+
+.category-section .bulet-point p i {
   color: #9C0A0E;
 }
 

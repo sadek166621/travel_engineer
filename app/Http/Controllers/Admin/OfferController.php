@@ -4,18 +4,19 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Admin\offer;
 use Carbon\Carbon;
-use App\Models\Admin\Blog;
 
-class BlogController extends Controller
+
+class offerController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-       $blogs =  Blog::orderBy('id','desc')->get();
-        return view('admin.blog.list',compact('blogs'));
+      $offers  = offer::orderBy('id','desc')->get();
+        return view('admin.offer.list',compact('offers'));
     }
 
     /**
@@ -23,7 +24,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return view('admin.blog.form');
+        return view('admin.offer.form');
 
     }
 
@@ -35,6 +36,7 @@ class BlogController extends Controller
         $validated = $request->validate([
             'title' => 'required',
             'description' => 'required',
+            'term' => 'required',
             'image' => 'required',
         ]);
 
@@ -51,24 +53,25 @@ class BlogController extends Controller
 
             $imageName = $currentDate . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
 
-            if (!file_exists('assets/images/uploads/blog')) {
-                mkdir('assets/images/uploads/blog', 0777, true);
+            if (!file_exists('assets/images/uploads/$offer')) {
+                mkdir('assets/images/uploads/$offer', 0777, true);
             }
 
-            $image->move(public_path('assets/images/uploads/blog'), $imageName);
-            //    $image->move(base_path().'assets/images/uploads/blog', $imageName);
+            $image->move(public_path('assets/images/uploads/$offer'), $imageName);
+            //    $image->move(base_path('assets/images/uploads/offer)', $imageName);
 
             $image = $imageName;
         }
 
-        $blog = blog::create([
+        $offer = offer::create([
             'title' => $request->title,
             'description' => $request->description,
+            'term' => $request->term,
             'image' => $image,
             'status' => $request->status,
         ]);
 
-        return redirect()->route('admin.blog.list')->with('success','blog Added Successfully');
+        return redirect()->route('admin.offer.list')->with('success','offer Added Successfully');
     }
 
     /**
@@ -84,9 +87,8 @@ class BlogController extends Controller
      */
     public function edit(string $id)
     {
-       $blog = blog::find($id);
-        return view('admin.blog.form',compact('blog'));
-
+        $offer = offer::find($id);
+        return view('admin.offer.form',compact('offer'));
     }
 
     /**
@@ -94,9 +96,9 @@ class BlogController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $blog = Blog::findOrFail($id);
+        $offer = Offer::findOrFail($id);
 
-        if($blog){
+        if($offer){
 
             if (!$request->status || $request->status == NULL) {
                 $request->status = 0;
@@ -104,7 +106,7 @@ class BlogController extends Controller
                 $request->status = 1;
             }
 
-            $imageName = $blog->image;
+            $imageName = $offer->image;
             $image = $request->file('image');
             if($image){
                 $currentDate = Carbon::now()->toDateString();
@@ -112,25 +114,26 @@ class BlogController extends Controller
 
                 $imageName = $currentDate . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
 
-                if (!file_exists('assets/images/uploads/blog')) {
-                    mkdir('assets/images/uploads/blog', 0777, true);
+                if (!file_exists('assets/images/uploads/offer')) {
+                    mkdir('assets/images/uploads/offer', 0777, true);
                 }
 
-                $image->move(public_path('assets/images/uploads/blog'), $imageName);
-                // $image->move(base_path().'assets/images/uploads/blog', $imageName);
+                $image->move(public_path('assets/images/uploads/offer'), $imageName);
+                // $image->move(base_path().'assets/images/uploads/offer', $imageName);
 
                 //$image = $imageName;
             }
 
-            $blog->update([
+            $offer->update([
                 'title' => $request->title,
                 'description' => $request->description,
+                'term' => $request->term,
                 'image' => $imageName,
                 'status' => $request->status,
             ]);
 
         }
-        return redirect()->route('admin.blog.list');
+        return redirect()->route('admin.offer.list');
     }
 
     /**
@@ -138,8 +141,8 @@ class BlogController extends Controller
      */
     public function destroy(string $id)
     {
-       $blog = blog::find($id);
-       $blog->delete();
-       return back();
+      $offer = Offer::find($id);
+      $offer->delete();
+      return back()->with('success', 'Delete Successfully');
     }
 }

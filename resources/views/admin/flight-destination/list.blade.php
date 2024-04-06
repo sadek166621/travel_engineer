@@ -14,7 +14,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title">destination Points</strong>
+                                <strong class="card-title">Destination Points</strong>
                             </div>
                             <div class="card-body">
                                 <table id="myTable" class="table table-striped table-bordered">

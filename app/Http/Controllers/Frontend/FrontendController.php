@@ -20,6 +20,7 @@ use App\Models\Newsletter;
 use App\Models\Admin\Tickets;
 use App\Models\Admin\Origin;
 use App\Models\Admin\Destination;
+use App\Models\Admin\Offer;
 
 
 class FrontendController extends Controller
@@ -63,6 +64,11 @@ class FrontendController extends Controller
 
     public function about(){
         return view('frontend.about.index');
+    }
+    public function offer(){
+        return view('frontend.offer.index',[
+            'offers'=> $offers =  Offer::where('status', 1)->orderBy('id','desc')->get(),
+        ]);
     }
     public function getPlaceByCountry($id)
     {
@@ -125,10 +131,6 @@ class FrontendController extends Controller
             'name' => 'required',
             'email' => 'required',
             'phone' => 'required',
-            'expected_travel_date' => 'required',
-            'package_name' => 'required',
-            // 'departure_point' => 'required',
-            'no_of_person' => 'required',
         ]);
 
         $booking = Booking::create([
@@ -137,7 +139,6 @@ class FrontendController extends Controller
             'phone' => $request->phone,
             'expected_travel_date' => $request->expected_travel_date,
             'package_name' => $request->package_name,
-            // 'departure_point' => $request->departure_point,
             'no_of_person' => $request->no_of_person,
         ]);
 

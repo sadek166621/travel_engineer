@@ -6,7 +6,7 @@
                 <aside class="widget widget_text">
                    <a href="{{ route('home') }}"><img src="{{ asset('assets') }}/images/uploads/settings/{{ getSetting()->logo }}" alt=""></a>
                    <div class="award-img">
-                      <a href="{{ route('home') }}"><img class="award" src="{{asset('frontend')}}/assets/images/vote4us.png" alt=""></a>
+                      {{-- <a href="{{ route('home') }}"><img class="award" src="{{asset('frontend')}}/assets/images/vote4us.png" alt=""></a> --}}
                       <!-- <a href="#"><img src="{{asset('frontend')}}/assets/images/ad.png" alt=""></a> -->
                    </div>
                 </aside>
@@ -37,16 +37,19 @@
                 </aside>
              </div>
              <div class="col-lg-4 col-md-6">
+                <aside class="widget widget_text">
+                    <h3 class="widget-title">Social Media</h3>
+                </aside>
                 <aside class="icon">
                    <a href="{{ getSetting()->facebook_link }}"><i class="fab fa-facebook"></i></a>
                    <a href="{{ getSetting()->instagram_link }}"><i class="fab fa-instagram"></i></a>
                    <a href="{{ getSetting()->linkedin_link }}"><i class="fab fa-linkedin"></i></a>
                    <a href="{{ getSetting()->youtube_link }}"><i class="fab fa-youtube"></i></a>
                 </aside>
-                <div class="award-img">
+                {{-- <div class="award-img">
                    <a href="#"><img src="{{asset('frontend')}}/assets/images/ad.png" alt=""></a>
                    <a href="#"><img src="{{asset('frontend')}}/assets/images/ad.png" alt=""></a>
-                </div>
+                </div> --}}
              </div>
           </div>
        </div>
