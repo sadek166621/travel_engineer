@@ -41,6 +41,13 @@
                         <li><i class="menu-icon fa fa-fort-awesome"></i><a href="{{ route('admin.tickets.list') }}">Leads</a></li>
                     </ul>
                 </li>
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-hotel	"></i>Hotel Booking</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="menu-icon fa fa-fort-awesome"></i><a href="{{ route('admin.hotel.list') }}">Hotels List</a></li>
+                        <li><i class="menu-icon fa fa-fort-awesome"></i><a href="{{ route('admin.hotel-booking.list') }}">Booking Leads</a></li>
+                    </ul>
+                </li>
 
                 <li>
                     <a href="{{ route('admin.offer.list') }}"> <i class="menu-icon fa fa-gift"></i>Offer</a>

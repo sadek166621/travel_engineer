@@ -21,6 +21,8 @@ use App\Models\Admin\Tickets;
 use App\Models\Admin\Origin;
 use App\Models\Admin\Destination;
 use App\Models\Admin\Offer;
+use App\Models\Admin\Hotel;
+use App\Models\HotelBooking;
 
 
 class FrontendController extends Controller
@@ -79,6 +81,12 @@ class FrontendController extends Controller
             $places=Place::where('country_id', $id)->where('status', 1)->get()->take(6);
         }
         return response()->json($places);
+    }
+
+    public function gethotelByCountry($countryId){
+
+        $hotel = Hotel::where('country_id', $countryId)->get();
+        return response()->json($hotel);
     }
 
     public function search(Request $request)
@@ -145,6 +153,39 @@ class FrontendController extends Controller
         // Toastr::success('Successfully Added', 'Screen-Printing', ["positionClass" => "toast-top-right"]);
         return back()->with('success','Package Booked Successfully');
     }
+
+    public function submithotel(Request $request){
+        // return $request;
+        $validated = $request->validate([
+            'email' => 'required',
+            'phone' => 'required',
+            'country' => 'required',
+            'hotel_name' => 'required',
+            'check_in' => 'required',
+            'stay_duration' => 'required',
+            'firstname' => 'required',
+            'lastname' => 'required',
+        ]);
+
+        $booking = HotelBooking::create([
+            'country'=>$request->country,
+            'hotel_name'=>$request->hotel_name,
+            'check_in'=>$request->check_in,
+            'person'=>$request->person,
+            'stay_duration'=>$request->stay_duration,
+            'firstname'=>$request->firstname,
+            'lastname'=>$request->lastname,
+            'email'=>$request->email,
+            'phone'=>$request->phone,
+        ]);
+
+        // Toastr::success('Successfully Added', 'Screen-Printing', ["positionClass" => "toast-top-right"]);
+        return back()->with('success','Hotel Booked Successfully');
+    }
+
+
+
+
     public function contactus(){
         return view('frontend.contact-us.index');
     }
@@ -184,6 +225,11 @@ class FrontendController extends Controller
             'phone'=>$request->phone,
         ]);
         return back()->with('success','Information Submitted Successfully');
+    }
+
+    public function hotelbooking(){
+        $data['countries'] = Country::where('status', 1)->orderBy('name', 'asc')->get();
+        return view('frontend.hotel-booking.index',$data);
     }
 
     public function countrys(){

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin\Tickets;
+use App\Models\HotelBooking;
 
 class FlightController extends Controller
 {
@@ -65,5 +66,17 @@ class FlightController extends Controller
         $leads = Tickets::find($id);
         $leads->delete();
         return back();
+    }
+
+    public function hotelbooking(){
+        $data['leads']= HotelBooking::orderBy('id','desc')->get();
+        return view('admin.hotel-booking.list',$data);
+    }
+
+    public function hotelbookingdestroy($id){
+        $data = HotelBooking::find($id);
+        $data->delete();
+        return back()->with('success','Deleted Successfully');
+
     }
 }

@@ -29,12 +29,12 @@
                     <div class="card-body">
                         <div class="stat-widget-five">
                             <div class="stat-icon dib flat-color-2">
-                                <i class="pe-7s-world"></i>
+                                <i class="pe-7s-home"></i>
                             </div>
                             <div class="stat-content">
                                 <div class="text-left dib">
-                                    <div class="stat-text"><span class="count">{{ $countries }}</span></div>
-                                    <div class="stat-heading">Country</div>
+                                    <div class="stat-text"><span class="count">{{ $bookings }}</span></div>
+                                    <div class="stat-heading">Hotel Booking</div>
                                 </div>
                             </div>
                         </div>

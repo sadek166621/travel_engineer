@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Admin\offer;
+use App\Models\Admin\Offer;
 use Carbon\Carbon;
 
 
@@ -15,7 +15,7 @@ class offerController extends Controller
      */
     public function index()
     {
-      $offers  = offer::orderBy('id','desc')->get();
+      $offers  = Offer::orderBy('id','desc')->get();
         return view('admin.offer.list',compact('offers'));
     }
 
@@ -63,7 +63,7 @@ class offerController extends Controller
             $image = $imageName;
         }
 
-        $offer = offer::create([
+        $offer = Offer::create([
             'title' => $request->title,
             'description' => $request->description,
             'term' => $request->term,
@@ -87,7 +87,7 @@ class offerController extends Controller
      */
     public function edit(string $id)
     {
-        $offer = offer::find($id);
+        $offer = Offer::find($id);
         return view('admin.offer.form',compact('offer'));
     }
 

@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\OriginController;
 use App\Http\Controllers\Admin\DestinationController;
 use App\Http\Controllers\Admin\FlightController;
 use App\Http\Controllers\Admin\OfferController;
+use App\Http\Controllers\Admin\HotelController;
 
 
 // ====================FrontEnd Controllers Path ================
@@ -52,10 +53,14 @@ Route::get('about', [FrontendController::class, 'about'])->name('about');
 Route::get('offer', [FrontendController::class, 'offer'])->name('offer');
 Route::get('countrys', [FrontendController::class, 'countrys'])->name('countrys');
 Route::get('flight-tickets', [FrontendController::class, 'flighttickets'])->name('flight-tickets');
+Route::get('hotel-booking', [FrontendController::class, 'hotelbooking'])->name('hotel-booking');
 // Route::get('con', [FrontendController::class, 'about'])->name('about');
 Route::get('blog-details/{id}', [FrontendController::class, 'blogdetails'])->name('blog-details');
 Route::get('menu-package-details/{id}', [FrontendController::class, 'menupackagedetails'])->name('menu-package-details');
 Route::Post('submit-tickets', [FrontendController::class, 'submittickets'])->name('submit-tickets');
+Route::Post('submit-hotel', [FrontendController::class, 'submithotel'])->name('submit-hotel');
+Route::get('/hotel/{countryId}', [FrontendController::class, 'gethotelByCountry'])->name('hotel.by_country');
+
 
 
 
@@ -125,6 +130,19 @@ Route::prefix('admin/')->name('admin.')->middleware('admin')->group(function () 
 
     // =========================================== End origin Routes ======================================
 
+    // =========================================== Hotel Routes ======================================
+
+    Route::group(['as' => 'hotel.', 'prefix' => 'hotel'], function () {
+        Route::get('/list', [HotelController::class, 'index'])->name('list');
+        Route::get('/add', [HotelController::class, 'create'])->name('add');
+        Route::post('/submit', [HotelController::class, 'store'])->name('store');
+        Route::get('/edit/{id}', [HotelController::class, 'edit'])->name('edit');
+        Route::post('/update/{id}', [HotelController::class, 'update'])->name('update');
+        Route::get('/delete/{id}', [HotelController::class, 'destroy'])->name('delete');
+    });
+
+    // =========================================== End Hotel Routes ======================================
+
     // =========================================== destination Routes ======================================
 
     Route::group(['as' => 'destination.', 'prefix' => 'destination'], function () {
@@ -147,6 +165,19 @@ Route::prefix('admin/')->name('admin.')->middleware('admin')->group(function () 
         // Route::get('/edit/{id}', [FlightController::class, 'edit'])->name('edit');
         // Route::post('/update/{id}', [FlightController::class, 'update'])->name('update');
         Route::get('/delete/{id}', [FlightController::class, 'destroy'])->name('delete');
+    });
+
+    // =========================================== End tickets Routes ======================================
+
+    // =========================================== tickets Routes ======================================
+
+    Route::group(['as' => 'hotel-booking.', 'prefix' => 'hotel-booking'], function () {
+        Route::get('/list', [FlightController::class, 'hotelbooking'])->name('list');
+        // Route::get('/add', [FlightController::class, 'create'])->name('add');
+        // Route::post('/submit', [FlightController::class, 'store'])->name('store');
+        // Route::get('/edit/{id}', [FlightController::class, 'edit'])->name('edit');
+        // Route::post('/update/{id}', [FlightController::class, 'update'])->name('update');
+        Route::get('/delete/{id}', [FlightController::class, 'hotelbookingdestroy'])->name('delete');
     });
 
     // =========================================== End tickets Routes ======================================

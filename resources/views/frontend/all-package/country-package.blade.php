@@ -137,7 +137,7 @@
                         <!-- Inquiry Modal End -->
                     </div>
                     <div class="header-btn mt-3">
-                        <a href="#" class="button-secondary">Call Now</a>
+                        <a href="tel:+{{ getsetting()->mobile }}" class="button-secondary">Call Now</a>
                     </div>
 
                 </div>

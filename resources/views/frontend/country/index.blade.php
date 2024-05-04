@@ -17,28 +17,70 @@
     <section class="package-section my-3">
        <div class="container">
           <div class="package-inner">
-             <div class="row">
-                @foreach ($countries as $country )
-                <div class="col-lg-3 col-md-6">
-                    <div class="package-wrap">
-                       <figure class="feature-image">
-                          <a href="{{ route('menu-package-details',$country->id) }}">
-                             <img src="{{asset($country->image)}}" style="height: 250px; width: 250px;" alt="">
-                          </a>
-                       </figure>
-                       <div class="package-price">
-                          <h6>
-                             <span>{{ $country->name }}</span>
-                          </h6>
-                       </div>
-                    </div>
-                 </div>
-                @endforeach
-             </div>
-             {{-- <div class="btn-wrap text-center">
-                <a href="#" class="button-primary">VIEW ALL PACKAGES</a>
-             </div> --}}
-          </div>
+                  <div class="row">
+                    @foreach ($countries as $package )
+                     <div class="col-lg-3 col-md-6">
+                        <div class="package-wrap">
+                           <figure class="feature-image">
+                              <a href="{{ route('menu-package-details',$package->id) }}">
+                                 <img src="{{asset($package->image)}}" alt="">
+                              </a>
+                           </figure>
+                           <div class="package-price">
+                              <h6>
+                                 <span>{{ $package->name }}</span>
+                              </h6>
+                           </div>
+                        </div>
+                     </div>
+                     @endforeach
+                     {{-- <div class="col-lg-3 col-md-6">
+                        <div class="package-wrap">
+                           <figure class="feature-image">
+                              <a href="#">
+                                 <img src="{{asset('frontend')}}/assets/images/img6.jpg" alt="">
+                              </a>
+                           </figure>
+                           <div class="package-price">
+                              <h6>
+                                 <span> Canada </span>
+                              </h6>
+                           </div>
+                        </div>
+                     </div> --}}
+                     {{-- <div class="col-lg-3 col-md-6">
+                        <div class="package-wrap">
+                           <figure class="feature-image">
+                              <a href="#">
+                                 <img src="{{asset('frontend')}}/assets/images/img6.jpg" alt="">
+                              </a>
+                           </figure>
+                           <div class="package-price">
+                              <h6>
+                                 <span> Canada </span>
+                              </h6>
+                           </div>
+                        </div>
+                     </div> --}}
+                     {{-- <div class="col-lg-3 col-md-6">
+                        <div class="package-wrap">
+                           <figure class="feature-image">
+                              <a href="#">
+                                 <img src="{{asset('frontend')}}/assets/images/img7.jpg" alt="">
+                              </a>
+                           </figure>
+                           <div class="package-price">
+                              <h6>
+                                 <span> Portugal</span>
+                              </h6>
+                           </div>
+                        </div>
+                     </div> --}}
+                  </div>
+                  <div class="btn-wrap text-center">
+                     <a href="{{ route('all-packages') }}" class="button-primary">VIEW ALL PACKAGES</a>
+                  </div>
+               </div>
        </div>
     </section>
     <!-- Destination Part end -->

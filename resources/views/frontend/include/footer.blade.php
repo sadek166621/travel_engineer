@@ -74,7 +74,7 @@
              </div>
 
              <div class="col-md-8">
-                <div class="copy-right text-right">Copyright © 2024 Travel Engineer| All rights reserved | Designed and Maintenance  by <a href="https://skydreamit.com/">Sky Dream IT</a> </div>
+                <div class="copy-right text-right"> © 2024 | Travel Engineer | All Rights Reserved | Designed And Maintenance  By <a href="https://skydreamit.com/">Sky Dream IT</a> </div>
              </div>
           </div>
        </div>

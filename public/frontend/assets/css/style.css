@@ -5201,7 +5201,13 @@ Due to the split circle of progress-left and progress right, we must use the ani
   .site-footer .top-footer {
     padding-bottom: 25px;
   }
+
+  .footer-primary .widget img {
+    width: 170px!important;
+  }
 }
+
+
 
 @media screen and (max-width: 767px) {
   .site-footer .footer-menu {
@@ -5224,7 +5230,7 @@ Due to the split circle of progress-left and progress right, we must use the ani
 }
 
 .footer-primary .widget img {
-  width: 250px;
+  width: 180px;
 }
 
 .footer-primary .widget .widget-title {
@@ -5306,7 +5312,7 @@ Due to the split circle of progress-left and progress right, we must use the ani
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom center;
-  padding: 100px 0 10px;
+  padding: 143px 0 10px;
   text-align: center;
   position: relative;
 }
@@ -5377,6 +5383,7 @@ Due to the split circle of progress-left and progress right, we must use the ani
 @media screen and (max-width: 575px) {
   .inner-baner-container .inner-title {
     font-size: 30px;
+    padding-top: 18px;
   }
 
   .inner-baner-container .inner-banner-content p {
