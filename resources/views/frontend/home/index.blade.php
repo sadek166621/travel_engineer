@@ -461,7 +461,7 @@
                            <div class="support-content">
                               <h4>Our 24/7 Emergency Phone Services</h4>
                               <h3>
-                                 <a href="#">Call: 123-456-7890</a>
+                                 <a href="#">Call: {{ getSetting()->mobile }}</a>
                               </h3>
                            </div>
                         </div>

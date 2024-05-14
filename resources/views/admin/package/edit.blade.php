@@ -49,14 +49,14 @@
                         <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Night</label></div>
                             <div class="col-12 col-md-9">
-                                <input type="text" id="text-input" name="night" placeholder="Night" required class="form-control" value="{{$tour->night}}">
+                                <input type="text" id="text-input" name="night" placeholder="Night"  class="form-control" value="{{$tour->night}}">
                                 {{-- <small class="form-text text-muted">This is a help text</small> --}}
                             </div>
                         </div>
                         <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Days</label></div>
                             <div class="col-12 col-md-9">
-                                <input type="number" readonly name="days" placeholder="Days" id="total_days" class="form-control" value="{{$tour->days}}">
+                                <input type="number" name="days" placeholder="Days" class="form-control" value="{{$tour->days}}">
                                 {{-- <small class="form-text text-muted">This is a help text</small> --}}
                             </div>
                         </div>
@@ -72,6 +72,13 @@
                             <div class="col-12 col-md-9">
                                 <input type="file" name="thumbnail" placeholder="Exception" class="form-control">
                                 <img src="{{asset('uploads')}}/package_thumbnail/{{$tour->thumbnail}}" class="mt-2" alt="" height="200px" width="400px">
+                                {{-- <small class="form-text text-muted">This is a help text</small> --}}
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Package Comment</label></div>
+                            <div class="col-12 col-md-9">
+                                <input type="text" name="comment"  placeholder="Package Comment" value="{{ $tour->comment }}" class="form-control">
                                 {{-- <small class="form-text text-muted">This is a help text</small> --}}
                             </div>
                         </div>

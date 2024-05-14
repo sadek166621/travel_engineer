@@ -77,7 +77,7 @@
                         <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Night</label></div>
                             <div class="col-12 col-md-9">
-                                <input type="text" id="text-input" name="night" placeholder="Night" required class="form-control">
+                                <input type="text" id="text-input" name="night" placeholder="Night"  class="form-control">
                                 {{-- <small class="form-text text-muted">This is a help text</small> --}}
                             </div>
                         </div>
@@ -139,6 +139,13 @@
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Thumbnail</label></div>
                             <div class="col-12 col-md-9">
                                 <input type="file" name="thumbnail" required placeholder="Exception" class="form-control">
+                                {{-- <small class="form-text text-muted">This is a help text</small> --}}
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Package Comment</label></div>
+                            <div class="col-12 col-md-9">
+                                <input type="text" name="comment"  placeholder="Package Comment" class="form-control">
                                 {{-- <small class="form-text text-muted">This is a help text</small> --}}
                             </div>
                         </div>

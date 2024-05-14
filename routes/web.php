@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\PlaceController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\OthersController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\OriginController;
@@ -49,6 +50,7 @@ Route::post('news-letter-submit', [FrontendController::class, 'newslettersubmit'
 
 Route::get('all-packages', [FrontendController::class, 'allpackages'])->name('all-packages');
 Route::get('blog', [FrontendController::class, 'blog'])->name('blog');
+Route::get('others-page/{id}', [FrontendController::class, 'otherspage'])->name('others-page');
 Route::get('about', [FrontendController::class, 'about'])->name('about');
 Route::get('offer', [FrontendController::class, 'offer'])->name('offer');
 Route::get('countrys', [FrontendController::class, 'countrys'])->name('countrys');
@@ -142,6 +144,19 @@ Route::prefix('admin/')->name('admin.')->middleware('admin')->group(function () 
     });
 
     // =========================================== End Hotel Routes ======================================
+
+    // =========================================== others Routes ======================================
+
+    Route::group(['as' => 'others.', 'prefix' => 'others'], function () {
+        Route::get('/list', [OthersController::class, 'index'])->name('list');
+        Route::get('/add', [OthersController::class, 'create'])->name('add');
+        Route::post('/submit', [OthersController::class, 'store'])->name('store');
+        Route::get('/edit/{id}', [OthersController::class, 'edit'])->name('edit');
+        Route::post('/update/{id}', [OthersController::class, 'update'])->name('update');
+        Route::get('/delete/{id}', [OthersController::class, 'destroy'])->name('delete');
+    });
+
+    // =========================================== End others Routes ======================================
 
     // =========================================== destination Routes ======================================
 

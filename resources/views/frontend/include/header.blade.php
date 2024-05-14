@@ -66,8 +66,6 @@
                                     <a href="{{ route('menu-package-details',$menu->id) }}">{{ $menu->name }}</a>
                                 </li>
                                 @endforeach
-
-
                             </ul>
                         </li>
                         <li class="menu-item-has-children">
@@ -89,10 +87,20 @@
                             <a href="{{ route('offer') }}">Offers</a>
                         </li>
                         <li>
-                            <a href="{{ route('about') }}">About Us</a>
+                            <a href="{{ route('about') }}">About</a>
                         </li>
                         <li>
-                            <a href="{{ route('contact-us') }}">Contact Us</a>
+                            <a href="{{ route('contact-us') }}">Contact</a>
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="#">Others</a>
+                            <ul>
+                                @foreach ($otherpage as $other )
+                                <li>
+                                    <a href="{{ route('others-page',$other->id) }}">{{ $other->title }}</a>
+                                </li>
+                                @endforeach
+                            </ul>
                         </li>
                     </ul>
                 </nav>

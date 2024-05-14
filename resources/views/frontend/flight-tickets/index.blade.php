@@ -5,11 +5,51 @@
     .select2-container .select2-selection--single {
         height: 32px !important;
         width: 220px !important;
+        border: 1px solid;
+        box-shadow: 0px 2px 5px rgb(7, 7, 7);
+        border-radius: 5px !important;
     }
 
     .select2-container--open .select2-dropdown--above {
         width: 220px !important;
     }
+    h3 {
+        border-bottom: 1px solid white; /* Define the style of the underline */
+        padding-bottom: 3px; /* Create a gap between the text and the underline */
+        display: inline-block; /* Make sure the underline only spans the width of the text */
+        color: white;
+    }
+    .form-group label{
+        color: white !important;
+    }
+
+    .booking-form-wrap{
+        background-color: #9C0A0E !important;
+        border-radius: 20px !important;
+
+    }
+    input{
+        border: 1px solid;
+        box-shadow: 0px 2px 5px rgb(7, 7, 7);
+        border-radius: 5px !important;
+
+    }
+    input[type=radio]{
+        box-shadow: none;
+    }
+    .button-booking{
+        color: black !important;
+        background-color: white;
+        border: 1px solid white!important;
+        border-radius: 5px;
+        font-size: 15px;
+        line-height: 1.3;
+        text-align: center;
+        padding: 10px 0px !important;
+        width: 130px;
+        font-weight: 600;
+    }
+
 
 </style>
 <main id="content" class="site-main">
@@ -198,8 +238,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row justify-content-between" style="float: right;">
-                                    <button type="submit" class="button-secondary">Submit</button>
+                                <div class="row justify-content-between px-3 pt-lg-3" style="float: right;">
+                                    <button type="submit" class="button-booking">Submit</button>
                                 </div>
                                 <!--End row -->
                             </div>

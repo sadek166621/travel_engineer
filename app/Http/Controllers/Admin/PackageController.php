@@ -51,8 +51,6 @@ class PackageController extends Controller
 
             'name' => 'required',
             'country' => 'required',
-            'night' => 'required',
-            'days' => 'required',
             'thumbnail' => 'required||mimes:jpeg,png,jpg,gif',
 
         ]);
@@ -92,6 +90,7 @@ class PackageController extends Controller
             'days' => $request->days,
             // 'no_of_people' => $request->no_of_people,
             'price' => $request->price,
+            'comment' => $request->comment,
             'country' => $request->country,
             'place' => $request->place,
             'age' => $request->age,
@@ -200,8 +199,6 @@ class PackageController extends Controller
 
             'name' => 'required',
             'country' => 'required',
-            'night' => 'required',
-            'days' => 'required',
             'thumbnail' => 'mimes:jpeg,png,jpg,gif',
 
         ]);
@@ -250,6 +247,7 @@ class PackageController extends Controller
             'country' => $request->country,
             'place' => $request->place,
             'age' => $request->age,
+            'comment' => $request->comment,
             'daterange' => $request->daterange,
             'exception' => $request->exception,
             'thumbnail' => $image,

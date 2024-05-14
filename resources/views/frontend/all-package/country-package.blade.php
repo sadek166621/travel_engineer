@@ -26,7 +26,11 @@
                 <div class="col-lg-7 col-md-6 border">
                     <div class="mt-4 d-flex align-items-center justify-content-between">
                         <h2>{{ $package->name }}</h2>
+                        @if ($package->night != NULL && $package->days != NULL)
                         <p class="text">{{ $package->night }} Night {{$package->days}} Days</p>
+                        @else
+                        <p class="text">{{ $package->comment }}</p>
+                        @endif
                     </div>
                     <hr>
                     <div>

@@ -6,18 +6,18 @@
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
    <!-- favicon -->
-   <link rel="icon" type="image/png" href="{{asset('frontend')}}/assets/images/Travel_Engineer_logo.png">
+   <link rel="icon" type="image/png" href="{{ asset('assets') }}/images/uploads/settings/{{ getSetting()->fav_icon }}">
    <!-- Bootstrap CSS -->
    @include('frontend.include.style')
    <title>Travel Engineer </title>
 </head>
 
 <body class="home">
-   <div id="siteLoader" class="site-loader">
+   {{-- <div id="siteLoader" class="site-loader">
       <div class="preloader-content">
          <img src="{{asset('frontend')}}/assets/images/loader1.gif" alt="">
       </div>
-   </div>
+   </div> --}}
    <div id="page" class="full-page">
     @include('frontend.include.header')
 

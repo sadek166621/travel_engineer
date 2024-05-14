@@ -21,6 +21,7 @@ use App\Models\Admin\Tickets;
 use App\Models\Admin\Origin;
 use App\Models\Admin\Destination;
 use App\Models\Admin\Offer;
+use App\Models\Admin\Others;
 use App\Models\Admin\Hotel;
 use App\Models\HotelBooking;
 
@@ -36,6 +37,11 @@ class FrontendController extends Controller
         $data['testimonials'] = Testimonial::where('status', 1)->orderBy('created_at', 'desc')->get();
         $data['blogs'] = Blog::where('status', 1)->orderBy('id', 'desc')->get();
         return view('frontend.home.index',$data);
+    }
+
+    public function otherspage($id){
+       $other = Others::find($id);
+        return view('frontend.others-page.index',compact('other'));
     }
 
     public function allpackages(){

@@ -102,7 +102,7 @@
        </div>
        <div class="map-section">
           <iframe
-             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d317838.95217734354!2d-0.27362819527326965!3d51.51107287614788!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604c7c7eb9be3%3A0x3918653583725b56!2sRiverside%20Building%2C%20County%20Hall%2C%20Westminster%20Bridge%20Rd%2C%20London%20SE1%207JA%2C%20UK!5e0!3m2!1sen!2snp!4v1632135241093!5m2!1sen!2snp"
+             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.075992907472!2d90.42255399999999!3d23.7803081!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c712484a874d%3A0x1b41d1d41b430cdc!2sTravel%20Engineer!5e0!3m2!1sen!2sbd!4v1715688555512!5m2!1sen!2sbd"
              height="400" allowfullscreen="" loading="lazy"></iframe>
        </div>
     </div>

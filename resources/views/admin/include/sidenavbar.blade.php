@@ -58,6 +58,9 @@
                     <a href="{{ route('admin.testimonial.list') }}"> <i class="menu-icon fa fa-users"></i>Testimonial</a>
                 </li>
                 <li>
+                    <a href="{{ route('admin.others.list') }}"> <i class="menu-icon fa fa-users"></i>Others</a>
+                </li>
+                <li>
                     <a href="{{ route('admin.message.list') }}"> <i class="menu-icon fa fa-envelope"></i>Message</a>
                     {{-- <a href="{{ route('admin.newsletter.list') }}"> <i class="menu-icon fa fa-newspaper-o"></i>News Letter</a> --}}
                 </li>
