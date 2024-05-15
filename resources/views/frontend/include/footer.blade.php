@@ -14,7 +14,7 @@
              <div class="col-lg-4 col-md-6">
                 <aside class="widget widget_text">
                    <h3 class="widget-title">Contact Information</h3>
-                   <div class="textwidget widget-text">
+                   <div class="textwidget widget-text" style="line-height: 20px;">
 
                       <ul>
                          <li>

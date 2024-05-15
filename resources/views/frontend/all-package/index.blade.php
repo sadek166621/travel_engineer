@@ -65,7 +65,7 @@
                 </div>
                </div>
                <div class="col-lg-2 col-md-6 border d-flex flex-column align-items-center justify-content-center">
-                  <h3 class="title">LKR {{ $package->price }}</h3>
+                  <h3 class="title">TK {{ $package->price }}</h3>
                   <h5 class="text">Starting Price</h5>
                   <div class="header-btn mt-2">
                     <a href="#" class="button-secondary" data-toggle="modal" data-target="#exampleModal{{ $package->id }}">Submit

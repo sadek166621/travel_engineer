@@ -23,16 +23,18 @@
                       <h5 class="dash-style">About Our Company</h5>
                       <h2>Hello. Our Agency Has Been Present Best In The Market</h2>
                    </div>
-                   <div class="col-lg-6">
-                      <div class="section-disc">
-                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec
-                            ullamcorper mattis, pulvinar dapibus leo.Placeat nostrud natus tempora justo.
-                            Laboriosam, eget mus nostrud natus tempora.</p>
-                         <p>Lorem ipsum dolor sit amet, consec tetur adipiscing eliting dolor sit amet. Placeat
-                            nostrud natus tempora justo nostrud natus tempora.</p>
-                      </div>
-                   </div>
                 </div>
+                <br>
+                <div class="row align-items-end">
+                      <div class="col-lg-12">
+                        <div class="section-disc">
+                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec
+                              ullamcorper mattis, pulvinar dapibus leo.Placeat nostrud natus tempora justo.
+                              Laboriosam, eget mus nostrud natus Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, ex recusandae? Laborum cupiditate ab dolor esse ipsa, amet sit nobis, iste adipisci sunt et minus inventore error at ex eius?</p>
+                        </div>
+                     </div>
+                </div>
+                <br>
              </div>
              <div class="about-service-container">
                 <div class="row">
